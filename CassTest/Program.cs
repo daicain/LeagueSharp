@@ -196,18 +196,42 @@ namespace Cassio
         }
 
         private static void ExecuteCombo()
-                {
+        {//start
             var target = SimpleTs.GetTarget(_q.Range, SimpleTs.DamageType.Magical);
 
-            if (target != null)
+            if (_igniteSlot != SpellSlot.Unknown &&
+                    ObjectManager.Player.SummonerSpellbook.CanUseSpell(_igniteSlot) == SpellState.Ready)
             {
-                if (ObjectManager.Player.Distance(target) <= _q.Range && _q.IsReady())
-                    _q.Cast(target);
-                if (ObjectManager.Player.Distance(target) <= _w.Range && _w.IsReady())
-                    _w.Cast(target);
-                if (ObjectManager.Player.Distance(target) <= _e.Range && _e.IsReady())
-                    _e.Cast();
+                ObjectManager.Player.SummonerSpellbook.CastSpell(_igniteSlot, target);
             }
-        }
-    }
+            ////////////////////////////////////////////////////////////////////////
+            // Should the script ult for us or shoudl we ult by ourself?
+            //if (ObjectManager.Player.Distance(target) <= _r.Range + _r.Width)
+            //{
+            //    _r.Cast(target, true, true);
+            //}
+            ////////////////////////////////////////////////////////////////////////
+
+            // USE Q
+            if (ObjectManager.Player.Distance(target) <= _q.Range + _q.Width)
+            {
+                _q.Cast(target, true, true);
+            }
+            
+            // USE W
+            if (ObjectManager.Player.Distance(target) <= _w.Range + _w.Width)
+            {
+                _w.Cast(target, true, true);
+            }
+
+
+
+            if (ObjectManager.Player.Distance(target) <= _e.Range + target.BoundingRadius && IsPoisoned(target))
+            {
+                _e.CastOnUnit(target,true);
+            }
+
+}//end
+ 
+}
 }

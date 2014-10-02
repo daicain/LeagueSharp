@@ -10,3 +10,4 @@ C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\SharpDX.dll
 C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\LeagueSharp.xml
 C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\obj\Debug\Cassio.exe
 C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\obj\Debug\Cassio.pdb
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\obj\Debug\Cassio.csprojResolveAssemblyReference.cache
