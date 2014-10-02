@@ -199,11 +199,13 @@ namespace Cassio
         {//start
             var target = SimpleTs.GetTarget(_q.Range, SimpleTs.DamageType.Magical);
 
-            if (_igniteSlot != SpellSlot.Unknown &&
-                    ObjectManager.Player.SummonerSpellbook.CanUseSpell(_igniteSlot) == SpellState.Ready)
-            {
-                ObjectManager.Player.SummonerSpellbook.CastSpell(_igniteSlot, target);
-            }
+            //if (_igniteSlot != SpellSlot.Unknown &&
+            //        ObjectManager.Player.SummonerSpellbook.CanUseSpell(_igniteSlot) == SpellState.Ready)
+            //{
+            //    ObjectManager.Player.SummonerSpellbook.CastSpell(_igniteSlot, target);
+            //}
+
+
             ////////////////////////////////////////////////////////////////////////
             // Should the script ult for us or shoudl we ult by ourself?
             //if (ObjectManager.Player.Distance(target) <= _r.Range + _r.Width)
