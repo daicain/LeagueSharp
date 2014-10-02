@@ -1,0 +1,12 @@
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\Cassio.exe.config
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\Cassio.exe
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\Cassio.pdb
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\DevCommom.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\Igniter.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\LeagueSharp.Common.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\LeagueSharp.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\SharpDX.Direct3D9.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\SharpDX.dll
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\bin\Release\LeagueSharp.xml
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\obj\Debug\Cassio.exe
+C:\Users\Cuong\Documents\GitHub\LeagueSharp\CassTest\obj\Debug\Cassio.pdb

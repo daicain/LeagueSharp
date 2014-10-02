@@ -45,6 +45,7 @@ namespace Cassio
 
         private static void Game_OnGameLoad(EventArgs args)
         {
+           
             if (ObjectManager.Player.ChampionName != ChampionName)
             {
                 return;
@@ -58,7 +59,7 @@ namespace Cassio
             _igniteSlot = ObjectManager.Player.GetSpellSlot("SummonerDot");
 
             const double ultAngle = 80 * Math.PI / 180;
-            const float fUltAngle = (float) ultAngle;
+            const float fUltAngle = (float)ultAngle;
 
             _q.SetSkillshot(0.60f, 75f, int.MaxValue, false, SkillshotType.SkillshotCircle);
             _w.SetSkillshot(0.50f, 106f, 2500f, false, SkillshotType.SkillshotCircle);
@@ -190,71 +191,22 @@ namespace Cassio
             }
             else
             {
-                _q.Cast(Game.CursorPos.To2D().Extend(ObjectManager.Player.ServerPosition.To2D(), - _q.Range + _q.Width));
+                _q.Cast(Game.CursorPos.To2D().Extend(ObjectManager.Player.ServerPosition.To2D(), -_q.Range + _q.Width));
             }
         }
 
         private static void ExecuteCombo()
-        {
+                {
             var target = SimpleTs.GetTarget(_q.Range, SimpleTs.DamageType.Magical);
-            if (target == null)
+
+            if (target != null)
             {
-                return;
-            }
-
-            if (_q.IsReady(2000) && _e.IsReady(2000) && _r.IsReady() &&
-                DamageLib.IsKillable(
-                    target,
-                    new[]
-                    {
-                        DamageLib.SpellType.Q, DamageLib.SpellType.W, DamageLib.SpellType.E, DamageLib.SpellType.E,
-                        DamageLib.SpellType.R, DamageLib.SpellType.R, DamageLib.SpellType.IGNITE
-                    }))
-            {
-                if (_igniteSlot != SpellSlot.Unknown &&
-                    ObjectManager.Player.SummonerSpellbook.CanUseSpell(_igniteSlot) == SpellState.Ready)
-                {
-                    ObjectManager.Player.SummonerSpellbook.CastSpell(_igniteSlot, target);
-                }
-
-                if (ObjectManager.Player.Distance(target) <= _r.Range + _r.Width)
-                {
-                    _r.Cast(target, true, true);
-                }
-
-                if (ObjectManager.Player.Distance(target) <= _w.Range + _w.Width)
-                {
-                    _w.Cast(target, true, true);
-                }
-
-                if (ObjectManager.Player.Distance(target) <= _q.Range + _q.Width)
-                {
-                    _q.Cast(target, true, true);
-                }
-
-                if (ObjectManager.Player.Distance(target) <= _e.Range + target.BoundingRadius && IsPoisoned(target) ||
-                    DamageLib.IsKillable(target, new[] { DamageLib.SpellType.E }))
-                {
-                    _e.CastOnUnit(target, true);
-                }
-            }
-            else
-            {
-                if (_w.IsReady() && ObjectManager.Player.Distance(target) <= _w.Range + _w.Width)
-                {
-                    _w.Cast(target, true, true);
-                }
-
-                if (_q.IsReady() && ObjectManager.Player.Distance(target) <= _q.Range + _q.Width)
-                {
-                    _q.Cast(target, true, true);
-                }
-
-                if (_e.IsReady() && ObjectManager.Player.Distance(target) <= _e.Range + target.BoundingRadius &&
-                    IsPoisoned(target) || DamageLib.IsKillable(target, new[] { DamageLib.SpellType.E }))
-                {
-                    _e.CastOnUnit(target, true);
-                }
+                if (ObjectManager.Player.Distance(target) <= _q.Range && _q.IsReady())
+                    _q.Cast(target);
+                if (ObjectManager.Player.Distance(target) <= _w.Range && _w.IsReady())
+                    _w.Cast(target);
+                if (ObjectManager.Player.Distance(target) <= _e.Range && _e.IsReady())
+                    _e.Cast();
             }
         }
     }
